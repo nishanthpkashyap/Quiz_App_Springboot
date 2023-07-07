@@ -10,7 +10,8 @@ import lombok.Data;
 @Data
 public class Questions {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    // Auto generates value for the primary key - id
+    // @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String category;
     private String difficultyLevel;
