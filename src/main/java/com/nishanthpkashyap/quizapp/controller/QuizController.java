@@ -1,8 +1,6 @@
 package com.nishanthpkashyap.quizapp.controller;
 
 import com.nishanthpkashyap.quizapp.model.QuestionWrapper;
-import com.nishanthpkashyap.quizapp.model.Questions;
-import com.nishanthpkashyap.quizapp.model.Quiz;
 import com.nishanthpkashyap.quizapp.model.Response;
 import com.nishanthpkashyap.quizapp.service.QuizService;
 import org.springframework.beans.factory.annotation.Autowired;
