@@ -70,8 +70,10 @@ public class QuizService {
             Quiz quiz = quizDao.findById(id).get(); //use chained .get() or use Optional<> like shown in the above method
             List<Questions> questionList = quiz.getQuestionsList();
             int result = 0;
+
             for(Questions q: questionList){
                 for(Response r : response){
+//                    Sometimes 2 questions may have the same answer
                     if(q.getId() == r.getId() && Objects.equals(q.getCorrectOption(), r.getResponse()))
                         result++;
                 }
