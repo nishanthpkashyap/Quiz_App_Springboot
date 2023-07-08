@@ -26,9 +26,8 @@ public class QuestionController {
         return questionService.getQuestionsByCategory(category);
     }
 
-    @GetMapping("/id/{idString}")
-    public ResponseEntity<Optional<Questions>> getQuestionsById(@PathVariable String idString){
-        Integer id = Integer.parseInt(idString);
+    @GetMapping("/id/{id}")
+    public ResponseEntity<Optional<Questions>> getQuestionsById(@PathVariable int id){
         return questionService.getQuestionsById(id);
     }
 
@@ -37,9 +36,8 @@ public class QuestionController {
         return questionService.addQuestion(question);
     }
 
-    @DeleteMapping("/delete/{qId}")
-    public ResponseEntity<String> deleteQuestion(@PathVariable String qId){
-        int id = Integer.parseInt(qId);
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<String> deleteQuestion(@PathVariable int id){
         return questionService.deleteQuestion(id);
     }
 

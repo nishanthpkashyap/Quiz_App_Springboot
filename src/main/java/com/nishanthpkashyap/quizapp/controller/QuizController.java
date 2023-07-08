@@ -1,12 +1,15 @@
 package com.nishanthpkashyap.quizapp.controller;
 
+import com.nishanthpkashyap.quizapp.model.QuestionWrapper;
+import com.nishanthpkashyap.quizapp.model.Questions;
+import com.nishanthpkashyap.quizapp.model.Quiz;
+import com.nishanthpkashyap.quizapp.model.Response;
 import com.nishanthpkashyap.quizapp.service.QuizService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -23,5 +26,15 @@ public class QuizController {
         String title = (String)req.get("title");
         String category = (String)req.get("category");
         return quizService.createQuiz(id, title, category, noOfQuestions);
+    }
+
+    @GetMapping("/get/{id}")
+    private ResponseEntity<List<QuestionWrapper>> getQuiz(@PathVariable int id){
+        return quizService.getQuizQuestions(id);
+    }
+
+    @PostMapping("/submit/{id}")
+    public ResponseEntity<Integer> submitQuiz(@PathVariable int id, @RequestBody List<Response> response){
+        return quizService.calculateQuizResult(id, response);
     }
 }

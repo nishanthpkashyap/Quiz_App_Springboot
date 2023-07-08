@@ -23,7 +23,7 @@ public class QuestionService {
         }
         catch (Exception e){
             e.printStackTrace();
-            return new ResponseEntity<>(new ArrayList<>(), HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(new ArrayList<>(), HttpStatus.NOT_FOUND);
         }
     }
 
@@ -34,7 +34,7 @@ public class QuestionService {
         }
         catch (Exception e){
             e.printStackTrace();
-            return new ResponseEntity<>(new ArrayList<>(), HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(new ArrayList<>(), HttpStatus.NOT_FOUND);
         }
     }
 
@@ -45,7 +45,7 @@ public class QuestionService {
         }
         catch (Exception e){
             e.printStackTrace();
-            return new ResponseEntity<>(questionDao.findById(id), HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(questionDao.findById(id), HttpStatus.NOT_FOUND);
 
         }
     }
