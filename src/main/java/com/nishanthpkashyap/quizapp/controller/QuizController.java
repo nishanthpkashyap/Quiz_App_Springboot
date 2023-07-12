@@ -23,6 +23,7 @@ public class QuizController {
         int id = Integer.parseInt((String)req.get("id"));
         String title = (String)req.get("title");
         String category = (String)req.get("category");
+        System.out.printf("%d, %d, %s, %s", noOfQuestions, id, title, category);
         return quizService.createQuiz(id, title, category, noOfQuestions);
     }
 
